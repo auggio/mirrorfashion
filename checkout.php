@@ -62,7 +62,7 @@
                         </div>
                         <div class="form-group">
                             <label for="cpf">CPF</label>
-                            <input type="text" class="form-control" id="cpf" name="cpf" placeholder="000.000.000-00">
+                            <input data-mask="999.999.999-99" type="text" class="form-control" id="cpf" name="cpf" placeholder="000.000.000-00">
                         </div>
                         <div class="form-check">
                             <input type="checkbox" class="form-check-input" id="spam" value="sim" name="spam" checked>
@@ -74,8 +74,8 @@
                         <legend>Cartão de crédito</legend>
                         <div class="form-group">
                             <label for="numero-cartao">Número - CVV</label>
-                            <input type="text" class="form-control" id="numero-cartao" name="numero-cartao">
-                        </div>
+                            <input data-mask="9999 9999 9999 9999 - 999" type="text" class="form-control" id="numero-cartao" name="numero-cartao">
+                            </div>
                         <div class="form-group">
                             <label for="bandeira-cartao">Bandeira</label>
                             <select name="bandeira-cartao" id="bandeira-cartao" class="form-control">
@@ -105,6 +105,16 @@
             let total = precoUnitario * quantidade;
             document.getElementById('total').value = 'R$ ' + total.toFixed(2);
         });
+
+        <script src="js/jquery.js"></script>
+        <script src="js/inputmask.js"></script>
+        <script>
+  $(document).ready(function() {
+    $(":input").inputmask(); // Ativa todas as máscaras definidas no data-mask
+  });
+</script>
+
+
     </script>
 </body>
 </html>

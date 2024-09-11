@@ -25,7 +25,12 @@
             Compre suas roupas e acessórios na Mirror Fashion. Acesse <a href="index.html">nossa loja</a> ou entre em contato
             se tiver dúvidas. Conheça também nossa <a href="#historia">história</a> e
             nossos <a href="#diferenciais">diferenciais</a>.
+
         </p>
+
+        <iframe	width="420" height="315" src="http://www.youtube.com/embed/Tb06abHE4hY"
+            frameborder="0" allowfullscreen></iframe>
+
         <h2 id="historia">História</h2>
         <figure id="familia-pelho">
             <img src="img/familia-pelho.jpg" alt="Família Pelho">
