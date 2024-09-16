@@ -9,11 +9,32 @@
         <link rel="stylesheet" href="css/produto.css">
     </head>
     <body>
+        <?php
+            $conexao = mysqli_connect("127.0.0.1", "root", "", "WD43");
+            $dados = mysqli_query($conexao, "SELECT * FROM produtos");
+            $produto = mysqli_fetch_array($dados);
+        ?>
+
         <?php include("cabecalho.php"); ?>
+        
         <div class="container">
             <div class="produto">
-                <h1>Fuzzy Cardigan</h1>
-                <p>por apenas R$ 129,00</p>
+                <h1><?=$produto['nome']?></h1>
+                <div class="fb-like" 
+                    data-href="http://www.mirrorfashion.net"
+                    data-send="false" 
+                    data-layout="box_count" 
+                    data-width="58" 
+                    data-show-faces="false">
+                </div>
+                <p>por apenas <?=$produto['preco']?></p>
+                <div class="fb-like" 
+                    data-href="http://www.mirrorfashion.net"
+                    data-send="false" 
+                    data-layout="box_count" 
+                    data-width="58" 
+                    data-show-faces="false">
+                </div>
                 <form action="checkout.php" method="POST">
                     <fieldset class="cores">
                         <legend>Escolha a cor:</legend>
@@ -41,9 +62,10 @@
                     <input type="hidden" name="numprod" value="1">
                 </form>
             </div>
+
             <div class="detalhes">
                 <h2>Detalhes do produto</h2>
-                <p>Esse é o melhor casaco de Cardigã que você já viu. Excelente material italiano com estampa desenhada pelos artesãos da comunidade de Krotor nas ilhas gregas. Compre já e receba hoje mesmo pela nossa entrega a jato.</p>
+                <p><?=$produto['descricao']?></p>
                 <table>
                     <thead>
                         <tr>
@@ -72,7 +94,19 @@
                 </table>
             </div>
         </div>
+
         <?php include("rodape.php"); ?>
+        
         <script src="js/produto.js"></script>
+        <div id="fb-root"></div>
+        <script>
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "http://connect.facebook.net/pt_BR/all.js#xfbml=1";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
     </body>
 </html>
